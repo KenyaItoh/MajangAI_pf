@@ -1,0 +1,2 @@
+①write_packet.pyを起動→game_tenhou.pyを起動
+②天鳳web版を開いて対局開始
