@@ -1,5 +1,5 @@
 # MajangAI_pf
-整理版<br>
+整理版<br><br>
 Template -> 画像テンプレート<br>
 files -> コードファイル（要整理）<br>
 guis -> テンプレートマッチングに使用<br>
