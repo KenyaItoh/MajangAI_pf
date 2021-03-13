@@ -281,6 +281,32 @@ def tehai_convert3(tehai_str):
         if not (hai in temp_tehai):
             temp_tehai.append(hai)
     return temp_tehai
+
+#[0,1,2,0,3,0,0,0,1...]型を受け取ってバイナリ型で返す すなわち3*38
+def tehai_convert_binary(tehai):
+    temp_tehai = []
+    for i in range(len(tehai)):
+        assert tehai[i] <= 4, "input error"
+        a = bin(tehai[i])
+        a = a.replace("0b","")
+        a = list(a)
+        for i in range(len(a)):
+            a[i] = int(a[i])
+        while len(a) <  3:
+            a.insert(0,0)
+        temp_tehai.extend(a)
+    return temp_tehai
+
+def bin_convert(number, bit):
+    a = bin(number)
+    a = a.replace("0b","")
+    a = list(a)
+    for i in range(len(a)):
+        a[i] = int(a[i])
+    while len(a) <  bit:
+        a.insert(0,0)
+    assert len(a) <= bit, "input error"
+    return a
     
 #[0,1,2,0,3,0,0,0,1...]型を受け取ってstr型で返す
 def tehai_convert_reverse(tehai):
