@@ -43,10 +43,12 @@ def convert(read_text):
 janshi = majang.Janshi_p(2)
 taku = majang.Taku()
 
+#場風、自風
 taku.kaze_honba[0] = random.randrange(8)
 janshi.kaze = random.randrange(4)
 
-input_data = ['3m',"3m","4m","4m","5m","6m","7m","7m","4m","4p","3p","5P","7z","7z"]
+#手牌、ドラ表示
+input_data = ["2p","2p","2p","2p","3p","8p","9p","3s","3s","4s","5S","7s","8s","8s"]
 taku.dorahyouji = ["1m"]
 janshi.tehai = input_data
 
