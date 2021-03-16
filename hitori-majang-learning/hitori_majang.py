@@ -35,7 +35,6 @@ def create_dataset(input_file_name, target_file_name):
     input_file = open(path1, "w")
     target_file = open(path2, "w")
 
-
     #create data
     for ep in range(1000):
         input_file.close()
@@ -48,21 +47,26 @@ def create_dataset(input_file_name, target_file_name):
         janshi.janshi_reset()
         taku.taku_reset()
 
+        #配牌
         for _ in range(14):
             temp1 = random.randrange(len(yama.nokori_yama))
             janshi.tehai.append(yama.nokori_yama[temp1])
             del yama.nokori_yama[temp1]
 
+        #ドラ表
         temp2 = random.randrange(len(yama.nokori_yama))
         taku.dorahyouji = [yama.nokori_yama[temp2]]
         del yama.nokori_yama[temp2]
 
+        #仮想山更新
         janshi.init_vertual_yama(taku)
         #print("ドラ表示" + taku.dorahyouji[0])
 
+        #風
         taku.kaze_honba[0] = random.randrange(8)
         janshi.kaze = random.randrange(4)
         
+        #ゲーム開始
         for junme in range(50):
             #print(str(junme) + "巡目")
             janshi.riipai()
@@ -70,7 +74,7 @@ def create_dataset(input_file_name, target_file_name):
             shanten_suu = shanten_check_new.shanten_check(janshi, taku.hash_table)      
             taku.yama_nokori = 50
             if shanten_suu >= 0:
-                temp = np.argmax(eval_ensemble.eval_tehai_point(janshi, taku))
+                temp = np.argmax(eval_ensemble.eval_tehai_point(janshi, taku)) #temp:手牌中における打牌のindex
             #elif shanten_suu == 1 or shanten_suu == 0:
             #    temp = np.argmax(eval_ensemble.new_yuukouhai_explore(shanten_suu, janshi, taku)[0])
             else:

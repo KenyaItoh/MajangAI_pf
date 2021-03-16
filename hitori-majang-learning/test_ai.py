@@ -19,9 +19,9 @@ class N_network:
         self.model.add(Dropout(rate=0.2)) # ドロップアウト
         self.model.add(Dense(2000, activation='tanh'))
         self.model.add(Dropout(rate=0.5)) # ドロップアウト
-        self.model.add(Dense(2000, activation='tanh'))   
+        self.model.add(Dense(2000, activation='tanh'))
         self.model.add(Dropout(rate=0.5)) # ドロップアウト
-        self.model.add(Dense(2000, activation='tanh'))   
+        self.model.add(Dense(2000, activation='tanh'))
         self.model.add(Dropout(rate=0.5)) # ドロップアウト
         self.model.add(Dense(action_size, activation='softmax'))
         self.model.compile(loss="categorical_crossentropy", optimizer=SGD(lr=0.001),metrics=['accuracy'])
@@ -48,7 +48,7 @@ taku.kaze_honba[0] = random.randrange(8)
 janshi.kaze = random.randrange(4)
 
 #手牌、ドラ表示
-input_data = ["2p","2p","2p","2p","3p","8p","9p","3s","3s","4s","5S","7s","8s","8s"]
+input_data = ["5p","5p","7p","8p","8p","8p","9p","3s","3s","3s","4s","7s","8s","8s"]
 taku.dorahyouji = ["1m"]
 janshi.tehai = input_data
 
